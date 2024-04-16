@@ -2,29 +2,56 @@
 
 # BEGIN
 module Model
-	require 'Time'
+  def self.included base
+    base.extend ClassMethods
+  end
 
-	def self.included(base)
-		def base.attribute(name, options = {})
-			@attribute ||= []
-			@attribute.push(name, options)
-			@@attributed = Hash[*@attribute]
-		end
+  module ClassMethods
+    def attribute name, options = {}
+      attribute ||= {}
+      attribute[name] = options
 
+      attribute.each do |key, target|
+        define_method "#{key}" do
+          instance_variable_get "@#{key}"
+        end
 
-		def initialize(params = {})
-			@attributes = params
-			if @attributes.has_key?(:created_at)
-				@attributes = @attributes.merge(created_at: DateTime.parse(@attributes[:created_at]))
-			end
+        define_method "#{key}=" do |v|
+          case target[:type]
+          when :string then value = v.to_s
+          when :integer then value = v.to_i
+          when :datetime then value = DateTime.parse(v)
+          when :boolean then value = v if [true, false].include? v
+				  else nil
+          end
+          instance_variable_set "@#{key}", value
+        end
+      end
+    end
+  end
 
-			@attributes.each do |key, value|
-				self.instance_variable_set "@#{key}", value
-				self.instance_variable_get "@#{key}"
-			end
-		end
+  def initialize params = {}
+    @attributes = params.each do |key, val|
+      self.instance_variable_get "@#{key}"
+        case key
+        when :id then value = val.to_i
+        when :title, :body then value = val.to_s
+        when :created_at then value = DateTime.parse(val)
+        when :published then value = val if [true, false].include? val
+				else nil
+        end
+      self.instance_variable_set "@#{key}", value
+    end
+  end
 
-		attr_accessor :attributes, :id, :title, :body, :created_at, :published  
-	end
+  def attributes
+    @attributes = {
+      :id => self.instance_variable_get(:@id),
+      :title => self.instance_variable_get(:@title),
+      :body => self.instance_variable_get(:@body),
+      :created_at => self.instance_variable_get(:@created_at),
+      :published => self.instance_variable_get(:@published)
+    }
+  end
 end
 # END
