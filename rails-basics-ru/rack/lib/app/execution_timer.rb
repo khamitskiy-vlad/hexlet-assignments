@@ -9,11 +9,12 @@ class ExecutionTimer
     start = Time.now
     status, headers, body = @app.call(env)
     finish = Time.now
-
     puts execute_time_for(start, finish)
+
+    [status, headers, body]
   end
 
   def execute_time_for(start, finish)
-    return((finish - start) * 1000.0).to_s
+    ((finish - start) * 1000.0).to_s
   end
 end
