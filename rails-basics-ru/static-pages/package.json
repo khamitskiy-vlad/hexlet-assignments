@@ -1,0 +1,28 @@
+{
+  "name": "static-pages",
+  "version": "1.0.0",
+  "description": "Хотя фреймворк Ruby On Rails разработан для создания динамических веб-сайтов, он также отлично справляется с созданием статических страниц.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.bootstrap.css -o ./app/assets/builds/application.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.2",
+    "@popperjs/core": "^2.11.7",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.3",
+    "esbuild": "^0.20.0",
+    "postcss-import": "^16.0.0",
+    "tailwindcss": "^3.4.1"
+  }
+}
