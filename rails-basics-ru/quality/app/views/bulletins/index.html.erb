@@ -1,4 +1,6 @@
 <h1>Bulletins</h1>
 <%# BEGIN %>
-
+<% @bulletins.each do |bulletin| %>
+  <li><%= link_to bulletin.title, bulletin %></li>
+<% end %>
 <%# END %>

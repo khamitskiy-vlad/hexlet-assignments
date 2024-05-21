@@ -9,5 +9,16 @@ AllCops:
     - 'examples/**'
 
 # BEGIN
-
+Style/Documentation:
+  Enabled: false
+Layout/TrailingWhitespace:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Lint/EmptyFile:
+  Enabled: false
 # END
