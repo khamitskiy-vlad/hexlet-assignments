@@ -1,9 +1,9 @@
-bulletin_1:
+bulletin1:
   id: 1
   title: 'Продам гараж!'
   body: 'Недорого!'
 
-bulletin_2:
+bulletin2:
   id: 2
   title: 'Куплю Айфон!'
   body: 'Тоже недорого...'

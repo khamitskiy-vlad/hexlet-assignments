@@ -21,4 +21,6 @@ Style/SymbolArray:
   Enabled: false
 Lint/EmptyFile:
   Enabled: false
+Lint/UselessAssignment:
+  Enabled: false
 # END
