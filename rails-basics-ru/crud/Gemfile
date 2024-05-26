@@ -1,0 +1,46 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+gem 'puma'
+gem 'rails', '~> 7.1'
+gem 'sqlite3', '~> 1.4'
+
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem 'sprockets-rails'
+
+# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem 'jsbundling-rails'
+
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem 'turbo-rails'
+
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem 'stimulus-rails'
+
+# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
+gem 'cssbundling-rails'
+
+gem 'bootsnap', '>= 1.4.4', require: false
+gem 'jbuilder'
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+end
+
+group :development do
+  gem 'listen', '~> 3.3'
+  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'web-console', '>= 4.1.0'
+  # gem 'spring'
+end
+
+group :test do
+  gem 'faker'
+  gem 'minitest-power_assert'
+end
+
+gem 'rexml', '~> 3.2', '>= 3.2.4'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
