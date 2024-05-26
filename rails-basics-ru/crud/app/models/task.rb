@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tasks
@@ -12,6 +14,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+
 class Task < ApplicationRecord
   validates :name, presence: true
   validates :status, presence: true

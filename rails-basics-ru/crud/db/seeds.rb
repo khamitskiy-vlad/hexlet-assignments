@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 5.times do
-  tasks1 = Task.create(
+  Task.create(
     name: Faker::Lorem.question,
     creator: Faker::Name.name
   )
 
-  tasks2 = Task.create(
+  Task.create(
     name: Faker::Lorem.question,
     description: Faker::Lorem.paragraph,
     creator: Faker::Name.name,
