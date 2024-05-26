@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: tasks
@@ -14,10 +12,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-require 'test_helper'
-
-class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Task < ApplicationRecord
+  validates :name, presence: true
+  validates :status, presence: true
+  validates :creator, presence: true
+  validates :complited, presence: true
 end

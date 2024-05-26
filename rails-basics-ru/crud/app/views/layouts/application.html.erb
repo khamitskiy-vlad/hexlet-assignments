@@ -6,9 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <#%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <#%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <#%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
@@ -21,8 +21,9 @@
     <ul>
       <li><%= link_to 'Home', root_path %></li>
       <%# BEGIN %>
-      
+      <li><%= link_to 'Task list', tasks_path %></li>
       <%# END %>
+      <li><%= link_to 'Create new task', new_task_path %></li>
     </ul>
     <%= yield %>
   </body>

@@ -1,0 +1,13 @@
+<p><%= task.description %></p>
+
+<small>Creator: <%= task.creator %></small><br>
+<small>Performed: <%= task.performer %></small><br>
+
+<% if task.complited %>
+  <small>Status: Completed</small>
+<% else %>
+  <small>Status: In progress</small>
+<% end %>
+
+<p><%= button_to 'Edit task', edit_task_path, method: :get %></p>
+<p><%= button_to 'Delete task', task_path, method: :delete %></p>

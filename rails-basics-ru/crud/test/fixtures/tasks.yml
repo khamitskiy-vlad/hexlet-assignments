@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: tasks
@@ -14,10 +12,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-require 'test_helper'
 
-class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+one:
+  name: <%= Faker::Lorem.question %>
+  description: <%= Faker::Lorem.paragraph %>
+  creator: <%= Faker::Name.name %>
+  performer: <%= Faker::Name.name %>
