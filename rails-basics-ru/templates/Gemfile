@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'rails', '~> 7.1'
 
 # BEGIN
-
+gem 'slim-rails'
 # END
 
 gem 'jbuilder'
@@ -34,6 +34,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker'
 end
 
 group :development do
@@ -44,7 +45,6 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
   gem 'minitest-power_assert'
 end
 
