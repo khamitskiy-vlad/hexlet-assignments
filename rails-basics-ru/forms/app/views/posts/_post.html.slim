@@ -1,0 +1,18 @@
+p
+  strong
+    = post.title
+p
+  small
+    | Summary: 
+    = post.summary
+p
+  = post.body
+p
+  small
+    | Published:
+    - if post.published
+      | #{' yes, '}
+    - else
+      | #{' no, '}
+    | created at:
+    = post.created_at.strftime(" %m/%d/%Y")
