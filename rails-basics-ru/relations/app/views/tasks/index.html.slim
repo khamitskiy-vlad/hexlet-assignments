@@ -1,0 +1,6 @@
+h1 Tasks
+p= link_to 'Create new task', new_task_path
+#tasks
+- @tasks.each do |task|
+  hr
+  = render task

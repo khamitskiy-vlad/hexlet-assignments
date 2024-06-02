@@ -1,0 +1,12 @@
+p
+  strong
+    = link_to task.name, task_path(task)
+p 
+  = task.description
+p
+  |User:
+  = link_to task.user.name, user_path(task.user)
+p
+  small
+    |Status:
+    = task.status.name
