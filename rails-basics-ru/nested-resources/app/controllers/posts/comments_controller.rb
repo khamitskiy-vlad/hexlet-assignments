@@ -1,55 +1,47 @@
 # frozen_string_literal: true
 
 class Posts::CommentsController < Posts::ApplicationController
-  before_action :set_comment, only: %i[show edit update destroy]
-  before_action :set_post, only: %i[index new create]
-  def index
-    @post_comments = @post.post_comments
+  def edit
+    @comment = resource_post.comments.find params[:id]
   end
-
-  def show; end
-
-  def new
-    @post_comment = @post.post_comments.build
-  end
-
-  def edit; end
 
   def create
-    @post_comment = @post.post_comments.build(post_comment_params)
+    @comment = PostComment.new(comment_params)
+    @comment.post = resource_post
 
-    if @post_comment.save
-      redirect_to post_path(@post), notice: 'Post comment was successfully created.'
+    if @comment.save
+      redirect_to resource_post, notice: 'Comment was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      @post = resource_post
+
+      flash[:alert] = 'Comment has not been added'
+      render 'posts/show', status: :unprocessable_entity
     end
   end
 
   def update
-    if @post_comment.update(post_comment_params)
-      redirect_to post_path(@post_comment.post), notice: 'Post comment was successfully updated.'
+    @comment = resource_post.comments.find params[:id]
+
+    if @comment.update(comment_params)
+      redirect_to resource_post, notice: 'Comment was successfully updated.'
     else
+      flash[:alert] = 'Comment has not been updated'
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @post_comment.destroy!
+    @comment = PostComment.find params[:id]
 
-    redirect_to post_comments_url, notice: 'Post comment was successfully destroyed.'
+    @comment.destroy
+
+    redirect_to resource_post
   end
 
   private
 
-  def set_comment
-    @post_comment = PostComment.find(params[:id])
-  end
-
-  def set_post
-    @post = Post.find(params[:post_id])
-  end
-
-  def post_comment_params
-    params.require(:post_comment).permit(:body, :post_id)
+  # Only allow a list of trusted parameters through.
+  def comment_params
+    params.require(:post_comment).permit(:body)
   end
 end
