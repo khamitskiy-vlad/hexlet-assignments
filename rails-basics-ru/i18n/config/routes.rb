@@ -2,13 +2,12 @@
 
 Rails.application.routes.draw do
   # BEGIN
-  locales = I18n.available_locales.join('|')
-  scope '/(:locale)', locale: /#{locales}/ do
-    root to: 'home#index'
+  scope '(:locale)', locale: /en|ru/ do
+    root 'home#index'
 
     resources :posts do
       scope module: :posts do
-        resources :comments, path: 'post_comments'
+        resources :comments, only: %i[edit create update destroy]
       end
     end
   end
