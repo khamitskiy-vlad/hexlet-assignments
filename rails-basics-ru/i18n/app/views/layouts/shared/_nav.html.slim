@@ -9,12 +9,12 @@
           li.nav-item.me-2
             = link_to root_path, class: 'nav-link link-dark' do
               / BEGIN
-              strong= t('.home')
+              = t('.home')
               / END
           li.nav-item.me-2
             = link_to posts_path, class: 'nav-link link-dark' do
               / BEGIN
-              strong= t('.posts')
+              = t('.posts')
               / END
           li.nav-item.d-flex.align-items-center.ms-auto
             - I18n.available_locales.without(I18n.locale).each do |locale|
