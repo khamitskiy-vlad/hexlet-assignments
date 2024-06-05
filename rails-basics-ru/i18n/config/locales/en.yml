@@ -30,20 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  back: Back
+  show: Show
+  edit: Edit
   destroy: Delete
   destroy_confirmation: Are you sure?
-  edit: Edit
-  home:
-    index:
-      home_page: Home page
-  layouts:
-    application:
-      hexlet_title: © Hexlet
-      hexlet_tag: © Hexlet, 2024
-    shared:
-      nav:
-        home: Home page
-        posts: Posts
-        hexlet_logo: Hexlet logo
-  show: Show
+  back: Back
