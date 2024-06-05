@@ -29,6 +29,7 @@ table.table.table-striped.table-hover.mb-5
         td.d-flex
           / posts links
           / BEGIN
+          strong= t('.posts_links')
           li= link_to t('.show'), post_path(post)
           li= link_to t('.edit'), edit_post_path(post)
           li= link_to t('.destroy'), post_path(post), method: :delete, data: { confirm: t('destroy_confirmation') }

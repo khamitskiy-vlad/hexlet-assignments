@@ -4,32 +4,37 @@ ru:
     # BEGIN
     index:
       comments_count:
-        zero: нет комментариев
-        one: %{count} комментарий
-        two: %{count} комментария
-        other: %{count} комментариев
-      new: новый пост
-      page_title: посты
-      posts_links: ссылка на пост
-      table_title: новый пост
-      edit: редактировать пост 
-      destroy: удалить пост
+        zero: Нет комментариев
+        one: '%{count} комментарий'
+        few: '%{count} комментария'
+        many: '%{count} комментариев'
+        other: '%{count} комментариев'
+      show: Показать пост
+      new: Новый пост
+      page_title: Посты
+      posts_links: Ссылка на пост
+      table_title: Новый пост
+      edit: Редактировать пост 
+      destroy: Удалить пост
 
     create:
-      success: пост был создан.
+      success: Пост создан.
+
+    edit:
+      title: Редактировать пост
 
     new:
-      title: новый пост
+      title: Новый пост
 
     update:
-      success: пост был обновлен.
+      success: Пост обновлен.
 
     destroy:
-      success: пост был удален.
+      success: Пост удален.
 
     show:
-      body: содержание
-      comments: комментарии
+      body: Содержание
+      comments: Комментарии
     # END
 
     comments:

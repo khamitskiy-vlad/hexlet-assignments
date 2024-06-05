@@ -4,9 +4,10 @@ en:
     index:
       comments_count:
         zero: No comments
-        one: %{count} comment
-        two: %{count} comments
-        other: %{count} comments
+        one: '%{count} comment'
+        two: '%{count} comments'
+        other: '%{count} comments'
+      show: Show Post
       new: New Post
       page_title: Posts
       posts_links: Post link
@@ -16,6 +17,9 @@ en:
 
     create:
       success: Post was created.
+    
+    edit:
+      title: Edit post
 
     new:
       title: New Post

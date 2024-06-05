@@ -5,14 +5,12 @@ ru:
       post: Пост
       # END
       post/comment: Комментарий
-
     attributes:
+      # BEGIN
       post:
-        # BEGIN
-        post:
-          title: Заголовок
-          body: Содержание
-        # END
+        title: Название
+        body: Содержание
+      # END
       post/comment:
         body: Содержание
 
@@ -22,7 +20,7 @@ ru:
           attributes:
             # BEGIN
             title:
-              blank: не может быть пустым
+              blank: Должно быть заполнено
             body:
-              blank: не может быть пустым
+              blank: Должно быть заполнено
             # END

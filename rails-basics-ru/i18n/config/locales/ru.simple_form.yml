@@ -11,8 +11,8 @@ ru:
     placeholders:
       # BEGIN
       post:
-        title: Заголовок
-        body: Текст поста
+        title: Название
+        body: Текст
       # END
       post_comment:
         body: Текст

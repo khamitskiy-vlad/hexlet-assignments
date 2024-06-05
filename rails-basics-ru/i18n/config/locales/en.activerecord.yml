@@ -20,7 +20,7 @@ en:
           attributes:
             # BEGIN
             title:
-              blank: not be blank
+              blank: should be filled
             body:
-              blank: not be blank
+              blank: should be filled
             # END
