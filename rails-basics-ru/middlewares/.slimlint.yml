@@ -1,0 +1,11 @@
+---
+
+exclude:
+  - vendor/*
+  - node_modules/*
+  - "**/examples/**/**"
+
+linters:
+
+  LineLength:
+    max: 180
