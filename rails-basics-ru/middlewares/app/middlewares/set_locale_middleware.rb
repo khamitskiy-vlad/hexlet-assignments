@@ -11,24 +11,24 @@ class SetLocaleMiddleware
   end
 
   def _call(env)
-    Rails.logger.debug "* Accept language: #{env['HTTP_ACCEPT_LANGUAGE']}"
-    locale = switch_locale(env)
+    request = Rack::Request.new env
+
+    Rails.logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+
+    locale = extract_locale_from_accept_language_header(request) || I18n.default_locale
+
     Rails.logger.debug "* Locale set to '#{locale}'"
+    I18n.locale = locale.downcase.to_sym
 
-    @status, @headers, @response = @app.call(env)
-    [@status, @headers, @response]
+    @app.call env
   end
 
-  private
+  def extract_locale_from_accept_language_header(request)
+    locale = request.env['HTTP_ACCEPT_LANGUAGE']&.scan(/^[a-z]{2}/)&.first
 
-  def switch_locale(env)
-    I18n.locale = extract_locale_from_accept_language_header(env) || I18n.default_locale
-  end
+    Rails.logger.debug "* Local detected as '#{locale}'"
 
-  def extract_locale_from_accept_language_header(env)
-    return if env['HTTP_ACCEPT_LANGUAGE'].blank?
-
-    env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+    I18n.available_locales.map(&:to_s).include?(locale) ? locale : nil
   end
   # END
 end
