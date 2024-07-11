@@ -71,5 +71,5 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # BEGIN
-
+gem 'aasm'
 # END

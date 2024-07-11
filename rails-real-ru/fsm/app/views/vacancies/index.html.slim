@@ -17,7 +17,7 @@ table.table.table-striped.table-hover.mb-5
         td = vacancy.description
         td.d-flex
           / BEGIN
-          
+          .me-4 = link_to 'Publish', publish_vacancy_path(vacancy), data: { turbo_method: :patch, turbo_confirm: 'Are you sure?' }, class: 'link-success'
           / END
 
 h2 Published

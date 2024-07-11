@@ -21,7 +21,26 @@ class VacanciesController < ApplicationController
   end
 
   # BEGIN
-  
+  def publish
+    @vacancy = Vacancy.find(params[:id])
+
+    if @vacancy.archived?
+      redirect_to vacancies_path, notice: "Couldn't publish archived vacancy."
+    else
+      @vacancy.publish!
+      redirect_to vacancies_path, notice: 'Vacancy was successfully published.'
+    end
+  end
+
+  def archive
+    @vacancy = Vacancy.find(params[:id])
+
+    if @vacancy.archive!
+      redirect_to vacancies_path, notice: 'Vacancy was successfully archived.'
+    else
+      redirect_to vacancies_path, notice: "Couldn't archive vacancy."
+    end  
+  end
   # END
 
   private
