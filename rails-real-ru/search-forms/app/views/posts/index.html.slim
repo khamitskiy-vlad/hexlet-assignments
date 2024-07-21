@@ -5,7 +5,11 @@
 
 .p-3.bg-light
   / BEGIN
-  
+  = search_form_for @search_query do |f|
+    = f.input :title_cont, label: false
+    = f.input :aasm_state_eq, as: :select, collection: Post.aasm.states.map(&:name), label: false
+    = f.submit 'Search', class: 'btn btn-primary me-2'
+    = link_to 'Reset', url_for, class: 'btn btn-outline-primary'
   / END
 
 table.table.table-striped.table-hover.mb-5

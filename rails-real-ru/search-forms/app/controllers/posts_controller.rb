@@ -3,7 +3,8 @@
 class PostsController < ApplicationController
   def index
     # BEGIN
-    
+    @search_query = set_posts
+    @posts = @search_query.result
     # END
   end
 
@@ -48,6 +49,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_posts
+    Post.ransack(params[:search_query])
+  end
 
   # Only allow a list of trusted parameters through.
   def post_params
