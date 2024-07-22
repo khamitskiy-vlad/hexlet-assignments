@@ -1,0 +1,16 @@
+= content_for :title do
+  = @post.title
+p
+  strong.me-2 = t('.author')
+  = @post.author.name
+p
+  strong.me-2 = t('.body')
+  = @post.body
+
+hr
+
+.d-flex
+  / BEGIN
+  
+  / END
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'
