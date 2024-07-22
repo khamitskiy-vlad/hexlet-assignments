@@ -6,6 +6,6 @@ class ResumeEducation < ApplicationRecord
   validates :begin_date, presence: true
 
   # BEGIN
-  
+  belongs_to :resume, inverse_of: :educations
   # END
 end
